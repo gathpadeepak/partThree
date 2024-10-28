@@ -26,7 +26,8 @@ morgan.token('body', (req)=>{
 
 app.use(morgan(':method: :url :status :res[content-length] - :response-time ms :body'));
 
-const mongodb_connection_URI = process.env.MONGODB_URI;
+const password = process.env.PASSWORD;
+const mongodb_connection_URI = `mongodb+srv://2100031817:${password}@cluster0.bwj1o.mongodb.net/Phonebook?retryWrites=true&w=majority&appName=Cluster0`;
 mongoose.set('strictQuery', false);
 mongoose.connect(mongodb_connection_URI).then(()=>{
   console.log('connection with mongodb is successful');
